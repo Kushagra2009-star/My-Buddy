@@ -1,93 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudySync - Student Productivity Hub</title>
-
-  <!-- Link external CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Buddy - Student Productivity Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-pink">
-  <div class="header">
-      <h1>📚 StudySync</h1>
-      <div class="header-controls">
-          <button class="btn btn-primary" id="inviteBtn">👥 Invite Friends</button>
-          <button class="btn btn-primary" id="settingsBtn">⚙️ Settings</button>
-          <button class="btn btn-primary" id="chatgptBtn">🤖 ChatGPT</button>
-      </div>
-  </div>
+    <div class="header">
+        <h1>📚 My Buddy</h1>
+        <div class="header-controls">
+            <button class="btn btn-primary" id="inviteBtn">👥 Invite Friends</button>
+            <button class="btn btn-primary" id="settingsBtn">⚙️ Settings</button>
+            <button class="btn btn-primary" id="chatgptBtn">🤖 ChatGPT</button>
+        </div>
+    </div>
 
-  <div class="container">
-      <div class="sidebar">
-          <div class="nav-item active" data-section="calendar">📅 Calendar</div>
-          <div class="nav-item" data-section="tasks">✓ Tasks</div>
-          <div class="nav-item" data-section="notes">📝 Notes</div>
-          <div class="nav-item" data-section="collaboration">👥 Collaboration</div>
-          <button class="btn btn-primary" id="stickyBtn" style="width: 100%; margin-top: 1rem;">📌 New Sticky Note</button>
-      </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-item active" data-section="calendar">📅 Calendar</div>
+            <div class="nav-item" data-section="tasks">✓ Tasks</div>
+            <div class="nav-item" data-section="notes">📝 Notes</div>
+            <div class="nav-item" data-section="collaboration">👥 Collaboration</div>
+            <button class="btn btn-primary" id="stickyBtn" style="width: 100%; margin-top: 1rem;">📌 New Sticky Note</button>
+        </div>
 
-      <div class="main-content">
-          <div id="calendar" class="section active">
-              <div class="calendar-header">
-                  <h2>📅 Google Calendar</h2>
-              </div>
-              <div class="google-calendar-container">
-                  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0"></iframe>
-              </div>
-          </div>
+        <div class="main-content">
+            <!-- Calendar Section -->
+            <div id="calendar" class="section active">
+                <div class="calendar-header">
+                    <h2>📅 Google Calendar</h2>
+                </div>
+                <div class="google-calendar-container">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0"></iframe>
+                </div>
+            </div>
 
-          <div id="tasks" class="section">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                  <h2>My Tasks</h2>
-                  <button class="btn btn-primary" id="addTaskBtn">+ Add New Task</button>
-              </div>
-              <div id="taskList">
-                  <div class="empty-state">
-                      <h3>📋 No tasks yet!</h3>
-                      <p>Click "Add New Task" to get started</p>
-                  </div>
-              </div>
-          </div>
+            <!-- Tasks Section -->
+            <div id="tasks" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>My Tasks</h2>
+                    <button class="btn btn-primary" id="addTaskBtn">+ Add New Task</button>
+                </div>
+                <div id="taskList">
+                    <div class="empty-state">
+                        <h3>📋 No tasks yet!</h3>
+                        <p>Click "Add New Task" to get started</p>
+                    </div>
+                </div>
+            </div>
 
-          <div id="notes" class="section">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                  <h2>My Notes</h2>
-                  <button class="btn btn-primary" id="addNoteBtn">+ Add New Note</button>
-              </div>
-              <div class="form-group">
-                  <label>📷 Upload Screenshot/Image</label>
-                  <input type="file" accept="image/*" id="imageUpload">
-              </div>
-              <div id="notesList">
-                  <div class="empty-state">
-                      <h3>📝 No notes yet!</h3>
-                      <p>Click "Add New Note" to create your first note</p>
-                  </div>
-              </div>
-          </div>
+            <!-- Notes Section -->
+            <div id="notes" class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>My Notes</h2>
+                    <button class="btn btn-primary" id="addNoteBtn">+ Add New Note</button>
+                </div>
+                <div class="form-group">
+                    <label>📷 Upload Screenshot/Image</label>
+                    <input type="file" accept="image/*" id="imageUpload">
+                </div>
+                <div id="notesList">
+                    <div class="empty-state">
+                        <h3>📝 No notes yet!</h3>
+                        <p>Click "Add New Note" to create your first note</p>
+                    </div>
+                </div>
+            </div>
 
-          <div id="collaboration" class="section">
-              <h2>👥 Collaboration</h2>
-              <p style="margin: 1rem 0;">Invite your friends to collaborate on tasks and homework together!</p>
-              <button class="btn btn-primary" id="inviteBtn2" style="margin: 1rem 0;">+ Invite Friend</button>
-              <h3 style="margin-top: 2rem;">Current Collaborators</h3>
-              <div id="collaboratorsList">
-                  <div class="collaborator-badge">You (Owner)</div>
-              </div>
-          </div>
-      </div>
-  </div>
+            <!-- Collaboration Section -->
+            <div id="collaboration" class="section">
+                <h2>👥 Collaboration</h2>
+                <p style="margin: 1rem 0;">Invite your friends to collaborate on tasks and homework together!</p>
+                <button class="btn btn-primary" id="inviteBtn2" style="margin: 1rem 0;">+ Invite Friend</button>
+                <h3 style="margin-top: 2rem;">Current Collaborators</h3>
+                <div id="collaboratorsList">
+                    <div class="collaborator-badge">You (Owner)</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Modals -->
-  <div id="taskModal" class="modal"> ... </div>
-  <div id="noteModal" class="modal"> ... </div>
-  <div id="inviteModal" class="modal"> ... </div>
-  <div id="settingsModal" class="modal"> ... </div>
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h2>✓ Add New Task</h2>
+            <div class="form-group">
+                <label>Task Title *</label>
+                <input type="text" id="taskTitle" placeholder="e.g., Complete Math Homework">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="taskDescription" placeholder="Enter task details..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Due Date *</label>
+                <input type="date" id="taskDate">
+            </div>
+            <div class="form-group">
+                <label>Priority</label>
+                <select id="taskPriority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn btn-primary" id="saveTaskBtn">✓ Add Task</button>
+                <button class="close-btn" id="closeTaskBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-  <button class="floating-btn" id="floatingStickyBtn" title="Create Sticky Note">📌</button>
+    <!-- Note Modal -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <h2>📝 Add New Note</h2>
+            <div class="form-group">
+                <label>Note Title *</label>
+                <input type="text" id="noteTitle" placeholder="e.g., Chemistry Notes">
+            </div>
+            <div class="form-group">
+                <label>Note Content *</label>
+                <textarea id="noteContent" placeholder="Enter your note content here..."></textarea>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn btn-primary" id="saveNoteBtn">📝 Add Note</button>
+                <button class="close-btn" id="closeNoteBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-  <!-- External Script -->
-  <script src="script.js"></script>
+    <!-- Invite Modal -->
+    <div id="inviteModal" class="modal">
+        <div class="modal-content">
+            <h2>👥 Invite Friends</h2>
+            <p>Share your workspace with friends and collaborate together!</p>
+            <div class="form-group">
+                <label>Friend's Email *</label>
+                <input type="email" id="friendEmail" placeholder="friend@example.com">
+            </div>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn btn-primary" id="sendInviteBtn">📧 Send Invitation</button>
+                <button class="close-btn" id="closeInviteBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>⚙️ Settings</h2>
+            <h3 style="margin-top: 2rem;">Choose Your Theme</h3>
+            <div class="theme-selector">
+                <div class="theme-option theme-pink-preview active" data-theme="theme-pink">
+                    Pink & White
+                </div>
+                <div class="theme-option theme-dark-preview" data-theme="theme-dark">
+                    Dark Mode
+                </div>
+                <div class="theme-option theme-blue-preview" data-theme="theme-blue">
+                    Ocean Blue
+                </div>
+                <div class="theme-option theme-mint-preview" data-theme="theme-mint">
+                    Mint Fresh
+                </div>
+            </div>
+            <button class="btn btn-primary" id="closeSettingsBtn" style="margin-top: 1rem; width: 100%;">Done</button>
+        </div>
+    </div>
+
+    <button class="floating-btn" id="floatingStickyBtn" title="Create Sticky Note">📌</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
